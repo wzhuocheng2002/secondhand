@@ -11,8 +11,6 @@ public class Category extends Account implements Serializable {
     /** ID */
     private Integer id;
 
-    /** 密码 */
-    private String password;
     /** 姓名 */
     private String name;
 
