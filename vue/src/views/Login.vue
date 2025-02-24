@@ -72,7 +72,6 @@ export default {
               }else{
                 this.$router.push('/front/home')  // 跳转主页
               }
-              
               this.$message.success('登录成功')
             } else {
               this.$message.error(res.msg)
