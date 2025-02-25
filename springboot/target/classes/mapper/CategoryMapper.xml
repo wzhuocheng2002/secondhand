@@ -18,17 +18,19 @@
         </where>
     </select>
 
-    <select id="selectById" resultType="com.example.entity.Category">
+    <select id="selectByCategoryname" resultType="com.example.entity.Category">
         select
         <include refid="Base_Column_List" />
         from category
-        where id = #{id}
+        where name = #{name}
     </select>
 
     <delete id="deleteById">
         delete from category
         where  id = #{id}
     </delete>
+
+
     <insert id="insert" parameterType="com.example.entity.Category" useGeneratedKeys="true">
         insert into category
         <trim prefix="(" suffix=")" suffixOverrides=",">

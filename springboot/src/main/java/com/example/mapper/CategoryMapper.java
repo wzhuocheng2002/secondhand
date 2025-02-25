@@ -26,15 +26,10 @@ public interface CategoryMapper {
     int updateById(Category category);
 
     /**
-      * 根据ID查询
-    */
-    Category selectById(Integer id);
-
-    /**
       * 查询所有
     */
     List<Category> selectAll(Category category);
 
-    @Select("select * from category where categoryname = #{categoryname}")
-    Category selectByCategoryname(String categoryname);
+
+    Category selectByCategoryname(String name);
 }

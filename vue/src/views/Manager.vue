@@ -52,6 +52,15 @@
             <el-menu-item index="/admin">管理员信息</el-menu-item>
             <el-menu-item index="/user">用户信息</el-menu-item>
           </el-submenu>
+
+          <el-menu-item index="/category">
+            <i class="el-icon-s-home"></i>
+            <span slot="title">类别信息</span>
+          </el-menu-item>
+          <el-menu-item index="/goods">
+            <i class="el-icon-s-home"></i>
+            <span slot="title">商品信息</span>
+          </el-menu-item>
         </el-menu>
       </div>
 

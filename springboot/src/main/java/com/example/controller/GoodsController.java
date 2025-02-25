@@ -1,8 +1,8 @@
 package com.example.controller;
 
 import com.example.common.Result;
-import com.example.entity.Category;
-import com.example.service.CategoryService;
+import com.example.entity.Goods;
+import com.example.service.GoodsService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,18 +13,18 @@ import java.util.List;
  * 用户前端操作接口
  **/
 @RestController
-@RequestMapping("/category")
-public class CategoryController {
+@RequestMapping("/goods")
+public class GoodsController {
 
     @Resource
-    private CategoryService categoryService;
+    private GoodsService goodsService;
 
     /**
      * 新增
      */
     @PostMapping("/add")
-    public Result add(@RequestBody Category category) {
-        categoryService.add(category);
+    public Result add(@RequestBody Goods goods) {
+        goodsService.add(goods);
         return Result.success();
     }
 
@@ -33,7 +33,7 @@ public class CategoryController {
      */
     @DeleteMapping("/delete/{id}")
     public Result deleteById(@PathVariable Integer id) {
-        categoryService.deleteById(id);
+        goodsService.deleteById(id);
         return Result.success();
     }
 
@@ -42,7 +42,7 @@ public class CategoryController {
      */
     @DeleteMapping("/delete/batch")
     public Result deleteBatch(@RequestBody List<Integer> ids) {
-        categoryService.deleteBatch(ids);
+        goodsService.deleteBatch(ids);
         return Result.success();
     }
 
@@ -50,26 +50,26 @@ public class CategoryController {
      * 修改
      */
     @PutMapping("/update")
-    public Result updateById(@RequestBody Category category) {
-        categoryService.updateById(category);
+    public Result updateById(@RequestBody Goods goods) {
+        goodsService.updateById(goods);
         return Result.success();
     }
 
     /**
-     * 根据ID查询
+     * 根据Name查询
      */
-    @GetMapping("/selectByCategoryname/{name}")
-    public Result selectByCategoryname(@PathVariable String name) {
-        Category category = categoryService.selectByCategoryname(name);
-        return Result.success(category);
+    @GetMapping("/selectGoodsName/{name}")
+    public Result selectByGoodsName(@PathVariable String name) {
+        Goods goods = goodsService.selectByGoodsName(name);
+        return Result.success(goods);
     }
 
     /**
      * 查询所有
      */
     @GetMapping("/selectAll")
-    public Result selectAll(Category category ) {
-        List<Category> list = categoryService.selectAll(category);
+    public Result selectAll(Goods goods ) {
+        List<Goods> list = goodsService.selectAll(goods);
         return Result.success(list);
     }
 
@@ -77,10 +77,10 @@ public class CategoryController {
      * 分页查询
      */
     @GetMapping("/selectPage")
-    public Result selectPage(Category category,
+    public Result selectPage(Goods goods,
                              @RequestParam(defaultValue = "1") Integer pageNum,
                              @RequestParam(defaultValue = "10") Integer pageSize) {
-        PageInfo<Category> page = categoryService.selectPage(category, pageNum, pageSize);
+        PageInfo<Goods> page = goodsService.selectPage(goods, pageNum, pageSize);
         return Result.success(page);
     }
 

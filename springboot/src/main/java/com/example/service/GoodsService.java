@@ -4,9 +4,9 @@ import cn.hutool.core.util.ObjectUtil;
 import com.example.common.enums.ResultCodeEnum;
 import com.example.common.enums.RoleEnum;
 import com.example.entity.Account;
-import com.example.entity.Category;
+import com.example.entity.Goods;
 import com.example.exception.CustomException;
-import com.example.mapper.CategoryMapper;
+import com.example.mapper.GoodsMapper;
 import com.example.utils.TokenUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -19,24 +19,23 @@ import java.util.List;
  * 管理员业务处理
  **/
 @Service
-public class CategoryService {
+public class GoodsService {
 
     @Resource
-    private CategoryMapper categoryMapper;
+    private GoodsMapper goodsMapper;
 
     /**
      * 新增
      */
-    public void add(Category category) {
-        //1、校验用户名是否重复
-        categoryMapper.insert(category);
+    public void add(Goods goods) {
+        goodsMapper.insert(goods);
     }
 
     /**
      * 删除
      */
     public void deleteById(Integer id) {
-        categoryMapper.deleteById(id);
+        goodsMapper.deleteById(id);
     }
 
     /**
@@ -44,37 +43,41 @@ public class CategoryService {
      */
     public void deleteBatch(List<Integer> ids) {
         for (Integer id : ids) {
-            categoryMapper.deleteById(id);
+            goodsMapper.deleteById(id);
         }
     }
 
     /**
      * 修改
      */
-    public void updateById(Category category) {
-        categoryMapper.updateById(category);
+    public void updateById(Goods goods) {
+        goodsMapper.updateById(goods);
     }
 
     /**
-     * 根据name查询
+     * 根据ID查询
      */
-    public Category selectByCategoryname(String name) {
-        return categoryMapper.selectByCategoryname(name);
+    public Goods selectByGoodsName(String name) {
+        return goodsMapper.selectByGoodsName(name);
     }
 
     /**
      * 查询所有
      */
-    public List<Category> selectAll(Category category) {
-        return categoryMapper.selectAll(category);
+    public List<Goods> selectAll(Goods goods) {
+        return goodsMapper.selectAll(goods);
     }
 
     /**
      * 分页查询
      */
-    public PageInfo<Category> selectPage(Category category, Integer pageNum, Integer pageSize) {
+    public PageInfo<Goods> selectPage(Goods goods, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        List<Category> list = categoryMapper.selectAll(category);
+        List<Goods> list = goodsMapper.selectAll(goods);
         return PageInfo.of(list);
     }
+
+
+
+
 }
