@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * 商品信息
 */
-public class Goods extends Account implements Serializable {
+public class Goods implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /** ID */
@@ -45,7 +45,7 @@ public class Goods extends Account implements Serializable {
     private Integer readCount;
     /** 用户名 */
     private String userName;
-    @Override
+
     public Integer getId() {
         return id;
     }
@@ -59,17 +59,14 @@ public class Goods extends Account implements Serializable {
     }
 
 
-    @Override
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @Override
     public String getName() {
         return name;
     }
 
-    @Override
     public void setName(String name) {
         this.name = name;
     }

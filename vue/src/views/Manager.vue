@@ -3,8 +3,7 @@
     <!--  头部  -->
     <div class="manager-header">
       <div class="manager-header-left">
-        <img src="@/assets/imgs/logo.png" />
-        <div class="title">后台管理系统</div>
+        <div class="title">二手交易网后台管理</div>
       </div>
 
       <div class="manager-header-center">
@@ -57,9 +56,20 @@
             <i class="el-icon-s-home"></i>
             <span slot="title">类别信息</span>
           </el-menu-item>
+
           <el-menu-item index="/goods">
             <i class="el-icon-s-home"></i>
             <span slot="title">商品信息</span>
+          </el-menu-item>
+
+          <el-menu-item index="/circles">
+            <i class="el-icon-s-home"></i>
+            <span slot="title">圈子信息</span>
+          </el-menu-item>
+
+          <el-menu-item index="/posts">
+            <i class="el-icon-s-home"></i>
+            <span slot="title">社区帖子</span>
           </el-menu-item>
         </el-menu>
       </div>

@@ -14,7 +14,7 @@ const routes = [
     path: '/',
     name: 'Manager',
     component: () => import('../views/Manager.vue'),
-    redirect: '/home',  // 重定向到主页
+    redirect: '/login',  // 重定向到主页
     children: [
       { path: '403', name: 'NoAuth', meta: { name: '无权限' }, component: () => import('../views/manager/403') },
       { path: 'home', name: 'Home', meta: { name: '系统首页' }, component: () => import('../views/manager/Home') },
@@ -25,6 +25,8 @@ const routes = [
       { path: 'user', name: 'User', meta: { name: '用户信息' }, component: () => import('../views/manager/User') },
       { path: 'category', name: 'Category', meta: { name: '类别信息' }, component: () => import('../views/manager/Category') },
       { path: 'goods', name: 'Goods', meta: { name: '类别信息' }, component: () => import('../views/manager/Goods') },
+      { path: 'circles', name: 'Circles', meta: { name: '圈子信息' }, component: () => import('../views/manager/Circles') },
+      { path: 'posts', name: 'Posts', meta: { name: '社区帖子' }, component: () => import('../views/manager/Posts') },
     ]
   },
   {
