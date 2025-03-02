@@ -36,7 +36,10 @@ public class JwtInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         // 1. 从http请求的header中获取token
+
+
         String token = request.getHeader(Constants.TOKEN);
+
         if (ObjectUtil.isEmpty(token)) {
             // 如果没拿到，从参数里再拿一次
             token = request.getParameter(Constants.TOKEN);

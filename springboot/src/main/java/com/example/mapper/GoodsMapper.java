@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import com.example.entity.Goods;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -36,4 +37,9 @@ public interface GoodsMapper {
     List<Goods> selectAll(Goods goods);
 
     Goods selectByGoodsName(String name);
+
+    List<Goods> selectFrontAll(Goods goods);
+
+    @Update("update goods set read_count = read_count + 1 where id = #{id}")
+    void updateReadCount(Integer id);
 }

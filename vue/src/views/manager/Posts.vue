@@ -145,6 +145,9 @@
       this.load(1)
     },
     methods: {
+        handleFileSuccess(response, file, fileList) {
+          this.form.img = response.data
+        },
         changeStatus(row, status){
             this.$confirm('您确定' + status + '吗？','确认操作', {type:"warning"}).then(response => {
                 this.form = JSON.parse(JSON.stringify(row))

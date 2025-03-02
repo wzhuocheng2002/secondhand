@@ -26,7 +26,51 @@ public class Goods implements Serializable {
     private String category;
     /** 日期 */
     private String date;
+    private String sort;
+    private Boolean userLikes;
+    private Boolean userCollect;
+    private Integer likesCount;
+    private Integer collectCount;
 
+    public Boolean getUserLikes() {
+        return userLikes;
+    }
+
+    public void setUserLikes(Boolean userLikes) {
+        this.userLikes = userLikes;
+    }
+
+    public Boolean getUserCollect() {
+        return userCollect;
+    }
+
+    public void setUserCollect(Boolean userCollect) {
+        this.userCollect = userCollect;
+    }
+
+    public Integer getLikesCount() {
+        return likesCount;
+    }
+
+    public void setLikesCount(Integer likeCount) {
+        this.likesCount = likeCount;
+    }
+
+    public Integer getCollectCount() {
+        return collectCount;
+    }
+
+    public void setCollectCount(Integer collectCount) {
+        this.collectCount = collectCount;
+    }
+
+    public String getSort() {
+        return sort;
+    }
+
+    public void setSort(String sort) {
+        this.sort = sort;
+    }
 
     public String getStatus() {
         return status;

@@ -59,7 +59,6 @@
             >
             <el-button type="primary">上传</el-button>
             </el-upload>
-
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">

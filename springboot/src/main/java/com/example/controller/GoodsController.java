@@ -54,6 +54,14 @@ public class GoodsController {
         goodsService.updateById(goods);
         return Result.success();
     }
+    /**
+     * 修改浏览量
+     */
+    @PutMapping("/updateReadCount/{id}")
+    public Result updateReadCount(@PathVariable Integer id) {
+        goodsService.updateReadCount(id);
+        return Result.success();
+    }
 
     /**
      * 根据Name查询
@@ -63,6 +71,16 @@ public class GoodsController {
         Goods goods = goodsService.selectByGoodsName(name);
         return Result.success(goods);
     }
+    /**
+     * 根据ID查询
+     */
+    @GetMapping("/selectById/{id}")
+    public Result selectById(@PathVariable Integer id) {
+        Goods goods = goodsService.selectById(id);
+        return Result.success(goods);
+    }
+
+
 
     /**
      * 查询所有
@@ -84,4 +102,11 @@ public class GoodsController {
         return Result.success(page);
     }
 
+    @GetMapping("/selectFrontPage")
+    public Result selectFrontPage(Goods goods,
+                                  @RequestParam(defaultValue = "1") Integer pageNum,
+                                  @RequestParam(defaultValue = "10") Integer pageSize) {
+        PageInfo<Goods> page = goodsService.selectFrontPage(goods, pageNum, pageSize);
+        return Result.success(page);
+    }
 }
