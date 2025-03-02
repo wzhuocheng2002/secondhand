@@ -27,6 +27,9 @@ const routes = [
       { path: 'goods', name: 'Goods', meta: { name: '类别信息' }, component: () => import('../views/manager/Goods') },
       { path: 'circles', name: 'Circles', meta: { name: '圈子信息' }, component: () => import('../views/manager/Circles') },
       { path: 'posts', name: 'Posts', meta: { name: '社区帖子' }, component: () => import('../views/manager/Posts') },
+      { path: 'help', name: 'Help', meta: { name: '求助' }, component: () => import('../views/manager/Help') },
+      { path: 'address', name: 'Address', meta: { name: '求助' }, component: () => import('../views/manager/Address') },
+      { path: 'feedback', name: 'Feedback', meta: { name: '求助' }, component: () => import('../views/manager/Feedback') },
     ]
   },
   {

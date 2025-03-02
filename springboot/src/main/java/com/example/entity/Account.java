@@ -1,9 +1,11 @@
 package com.example.entity;
 
+import java.io.Serializable;
+
 /**
  * 角色用户父类
  */
-public class Account {
+public class Account implements Serializable {
     private Integer id;
     /** 用户名 */
     private String username;

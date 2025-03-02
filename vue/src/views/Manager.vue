@@ -71,6 +71,22 @@
             <i class="el-icon-s-home"></i>
             <span slot="title">社区帖子</span>
           </el-menu-item>
+
+          <el-menu-item index="/help">
+            <i class="el-icon-s-home"></i>
+            <span slot="title">求购信息</span>
+          </el-menu-item>
+
+          <el-menu-item index="/address">
+            <i class="el-icon-s-home"></i>
+            <span slot="title">地址管理</span>
+          </el-menu-item>
+
+          <el-menu-item index="/feedback">
+            <i class="el-icon-s-home"></i>
+            <span slot="title">用户反馈</span>
+          </el-menu-item>
+
         </el-menu>
       </div>
 

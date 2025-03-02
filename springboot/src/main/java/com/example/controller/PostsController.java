@@ -58,7 +58,7 @@ public class PostsController {
     /**
      * 根据Name查询
      */
-    @GetMapping("/selectPostsTitled/{title}")
+    @GetMapping("/selectPostsTitle/{title}")
     public Result selectByPostsTitle(@PathVariable String title) {
         Posts posts = postsService.selectByTitle(title);
         return Result.success(posts);

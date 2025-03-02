@@ -54,11 +54,11 @@
             <if test="id != null">#{id},</if>
             <if test="title != null">#{title},</if>
             <if test="content != null">#{content},</if>
-            <if test="userId != null">#{user_id},</if>
+            <if test="userId != null">#{userId},</if>
             <if test="time != null">#{time},</if>
             <if test="circle != null">#{circle},</if>
             <if test="descr != null">#{descr},</if>
-            <if test="readCount != null">#{read_count},</if>
+            <if test="readCount != null">#{readCount},</if>
             <if test="status != null">#{status},</if>
         </trim>
     </insert>

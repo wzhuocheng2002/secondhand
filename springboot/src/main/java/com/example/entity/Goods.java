@@ -27,6 +27,7 @@ public class Goods implements Serializable {
     /** 日期 */
     private String date;
 
+
     public String getStatus() {
         return status;
     }

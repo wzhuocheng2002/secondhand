@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.HelpMapper">
+    <!-- id title content img status user_id time solved-->
+    <sql id="Base_Column_List">
+        id title content img status user_id time solved
+    </sql>
+
+    <select id="selectAll" resultType="com.example.entity.Help">
+        select
+        help.*, user.name as userName
+        from help
+        left join user on help.user_id = user.id
+        <where>
+            <!-- id title content img user_id time circle comment_count-->
+
+            <if test="title != null"> and help.title= #{title}</if>
+
+            <if test="userId != null"> and help.user_id= #{userId}</if>
+
+        </where>
+        order by help.id desc
+    </select>
+
+    <select id="selectById" resultType="com.example.entity.Help">
+        select
+        <include refid="Base_Column_List" />
+        from help
+        where id = #{id}
+    </select>
+
+    <delete id="deleteById">
+        delete from help
+        where  id = #{id}
+    </delete>
+
+    <!-- id title content img status user_id time solved-->
+    <insert id="insert" parameterType="com.example.entity.Help" useGeneratedKeys="true">
+        insert into help
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="title != null">title,</if>
+            <if test="content != null">content,</if>
+            <if test="img != null">img,</if>
+            <if test="status != null">status,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="time != null">time,</if>
+            <if test="solved != null">solved,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="title != null">#{title},</if>
+            <if test="content != null">#{content},</if>
+            <if test="img != null">#{img},</if>
+            <if test="status != null">#{status},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="time != null">#{time},</if>
+            <if test="solved != null">#{solved},</if>
+        </trim>
+    </insert>
+
+    <update id="updateById" parameterType="com.example.entity.Help">
+        update help
+        <!-- id title content img status user_id time solved-->
+        <set>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="content != null">
+                content = #{content},
+            </if>
+            <if test="img != null">
+                img = #{img},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="time != null">
+                time = #{time},
+            </if>
+            <if test="solved != null">
+                solved = #{solved},
+            </if>
+
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

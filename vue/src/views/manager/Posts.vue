@@ -15,13 +15,13 @@
         <el-table :data="tableData" stripe  @selection-change="handleSelectionChange">
           <el-table-column type="selection"  align="center"></el-table-column>
           <el-table-column prop="id" label="id"  align="center" sortable></el-table-column>
-          <el-table-column prop="title" label="标题"  align="center" sortable></el-table-column>
+          <el-table-column prop="title" label="标题"  align="center"></el-table-column>
           <el-table-column label="内容">
 	        <template v-slot="scope">
             <el-button @click="preview(scope.row.content)">查看内容</el-button>
             </template>
           </el-table-column>
-          <el-table-column prop="img" label="缩略图"  align="center" sortable>
+          <el-table-column prop="img" label="缩略图"  align="center">
             <template v-slot="scope">
             <div style="display: flex; align-items: center">
             <el-image style="width: 40px; height: 40px;" v-if="scope.row.img"
@@ -30,10 +30,10 @@
             </template>
           </el-table-column>
           <el-table-column prop="userId" label="用户Id"  align="center" sortable></el-table-column>
-          <el-table-column prop="userName" label="用户名称"  align="center" sortable></el-table-column>
-          <el-table-column prop="time" label="发布时间"  align="center" sortable></el-table-column>
-          <el-table-column prop="circle" label="圈子"  align="center" sortable></el-table-column>
-          <el-table-column prop="descr" label="圈子"  align="center" sortable></el-table-column>
+          <el-table-column prop="userName" label="用户名称"  align="center" ></el-table-column>
+          <el-table-column prop="time" label="发布时间"  align="center" ></el-table-column>
+          <el-table-column prop="circle" label="圈子"  align="center" ></el-table-column>
+          <el-table-column prop="descr" label="描述"  align="center" ></el-table-column>
           <el-table-column prop="readCount" label="阅读数量"  align="center" sortable></el-table-column>
           <el-table-column prop="status" label="审核状态"  align="center">
                 <template v-slot="scope">
@@ -73,7 +73,7 @@
         </div>
         </el-dialog>
   
-      <el-dialog name="圈子" :visible.sync="fromVisible" width="40%" :close-on-click-modal="false" destroy-on-close>
+      <el-dialog name="帖子" :visible.sync="formVisible" width="40%" :close-on-click-modal="false" destroy-on-close>
         <el-form label-width="100px" style="padding-right: 50px" :model="form" :rules="rules" ref="formRef">
           <el-form-item prop="title" label="标题">
             <el-input v-model="form.title" autocomplete="off"></el-input>
@@ -109,7 +109,7 @@
           
         </el-form>
         <div slot="footer" class="dialog-footer">
-          <el-button @click="fromVisible = false">取 消</el-button>
+          <el-button @click="formVisible = false">取 消</el-button>
           <el-button type="primary" @click="save">确 定</el-button>
         </div>
       </el-dialog>
@@ -168,11 +168,11 @@
         },
       handleAdd() {   // 新增数据
         this.form = {}  // 新增数据的时候清空数据
-        this.fromVisible = true   // 打开弹窗
+        this.formVisible = true   // 打开弹窗
       },
       handleEdit(row) {   // 编辑数据
         this.form = JSON.parse(JSON.stringify(row))  // 给form对象赋值  注意要深拷贝数据
-        this.fromVisible = true   // 打开弹窗
+        this.formVisible = true   // 打开弹窗
       },
       save() {   // 保存按钮触发的逻辑  它会触发新增或者更新
         this.$refs.formRef.validate((valid) => {
@@ -185,7 +185,7 @@
               if (res.code === '200') {  // 表示成功保存
                 this.$message.success('保存成功')
                 this.load(1)
-                this.fromVisible = false
+                this.formVisible = false
               } else {
                 this.$message.error(res.msg)  // 弹出错误的信息
               }
