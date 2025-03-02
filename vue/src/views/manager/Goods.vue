@@ -39,14 +39,13 @@
 
           <el-table-column prop="category" label="类别"  align="center"></el-table-column>
           <el-table-column prop="userId" label="用户id"  align="center"></el-table-column>
-          <el-table-column prop="username" label="用户名"  align="center"></el-table-column>
+          <el-table-column prop="userName" label="用户名"  align="center"></el-table-column>
           <el-table-column prop="saleStatus" label="出售状态"  align="center"></el-table-column>
           <el-table-column prop="readCount" label="浏览量"  align="center"></el-table-column>
           
   
           <el-table-column label="操作" width="240" align="center">
             <template v-slot="scope">
-              
             <el-button plain type="success" size="mini" @click="changeStatus(scope.row, '通过')">通过</el-button>
             <el-button plain type="danger" size="mini" @click="changeStatus(scope.row, '拒绝')">拒绝</el-button>
             <el-button plain type="danger" size="mini" @click="del(scope.row.id)">删除</el-button>
@@ -96,14 +95,14 @@
           <el-form-item prop="category" label="类别名称">
             <el-input v-model="form.category" autocomplete="off"></el-input>
           </el-form-item>
-          <el-form-item prop="user_id" label="用户id">
-            <el-input v-model="form.user_id" autocomplete="off"></el-input>
+          <el-form-item prop="userId" label="用户id">
+            <el-input v-model="form.userId" autocomplete="off"></el-input>
           </el-form-item>
-          <el-form-item prop="sale_status" label="售卖状态">
-            <el-input v-model="form.sale_status" autocomplete="off"></el-input>
+          <el-form-item prop="saleStatus" label="售卖状态">
+            <el-input v-model="form.saleStatus" autocomplete="off"></el-input>
           </el-form-item>
-          <el-form-item prop="read_count" label="浏览量">
-            <el-input v-model="form.read_count" autocomplete="off"></el-input>
+          <el-form-item prop="readCount" label="浏览量">
+            <el-input v-model="form.readCount" autocomplete="off"></el-input>
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
