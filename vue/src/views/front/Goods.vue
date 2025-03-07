@@ -1,22 +1,14 @@
 <template>
-    <div>
-      <div class="search">
-        <el-input placeholder="请输入名称查询" style="width: 200px" v-model="name"></el-input>
-        <el-button type="info" plain style="margin-left: 10px" @click="load(1)">查询</el-button>
-        <el-button type="warning" plain style="margin-left: 10px" @click="reset">重置</el-button>
-      </div>
-  
-      <div class="operation">
-        <el-button type="danger" plain @click="delBatch">批量删除</el-button>
-      </div>
-      <!--id,name,price,content,address,img,date,category,user_id.sale_status,read_count-->
+    <div style="width: 70%; margin: 10px auto; " class="card">
       <div class="table">
-        <el-table :data="tableData" stripe  @selection-change="handleSelectionChange">
-          <el-table-column type="selection" width="55" align="center"></el-table-column>
-          <el-table-column prop="id" label="id"  align="center" sortable></el-table-column>
+        <el-table :data="tableData" stripe >
           <el-table-column prop="name" label="商品名称"  align="center" show-overflow-tooltip></el-table-column>
-          <el-table-column prop="price" label="价格"  align="center"></el-table-column>
-          <el-table-column prop="content" label="详情" width="200" align="center">
+          <el-table-column prop="price" label="价格"  align="center">
+            <template v-slot="scope">
+              <span style="color:red;"> ￥{{scope.row.price}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column prop="content" label="详情" width="150" align="center">
             <template v-slot="scope">
                 <el-button @click = "preview(scope.row.content)">显示详情</el-button>
             </template>
@@ -35,8 +27,8 @@
           <el-table-column prop="status" label="审核状态"  align="center">
                 <template v-slot="scope">
                     <el-tag type ="info" v-if="scope.row.status==='待审核'" >待审核</el-tag>
-                    <el-tag type ="info" v-if="scope.row.status==='通过'" >通过</el-tag>
-                    <el-tag type ="info" v-if="scope.row.status==='拒绝'" >拒绝</el-tag>
+                    <el-tag type ="success" v-if="scope.row.status==='通过'" >通过</el-tag>
+                    <el-tag type ="danger" v-if="scope.row.status==='拒绝'" >拒绝</el-tag>
                 </template>
           </el-table-column>
 
@@ -47,16 +39,15 @@
           <el-table-column prop="readCount" label="浏览量"  align="center"></el-table-column>
           
   
-          <el-table-column label="操作" width="240" align="center">
+          <el-table-column label="操作" width="142" align="center">
             <template v-slot="scope">
-            <el-button plain type="success" size="mini" @click="changeStatus(scope.row, '通过')">通过</el-button>
-            <el-button plain type="danger" size="mini" @click="changeStatus(scope.row, '拒绝')">拒绝</el-button>
+            <el-button plain type="primary" size="mini" @click="handleEdit(scope.row)">编辑</el-button>
             <el-button plain type="danger" size="mini" @click="del(scope.row.id)">删除</el-button>
             </template>
           </el-table-column>
         </el-table>
   
-        <div class="pagination">
+        <div style="margin: 15px 0">
           <el-pagination
               background
               @current-change="handleCurrentChange"
@@ -71,62 +62,13 @@
   <el-dialog title="内容" :visible.sync="fromVisible1" width="40%" :close-on-click-modal="false" destroy-on-close>
     <div v-html="content"></div>
   </el-dialog>
-  <!--id,name,price,content,address,img,date,category,user_id.sale_status,read_count-->
-      <el-dialog name="商品信息" :visible.sync="fromVisible" width="40%" :close-on-click-modal="false" destroy-on-close>
-        <el-form label-width="100px" style="padding-right: 50px" :model="form" :rules="rules" ref="formRef">
-          <el-form-item prop="name" label="商品名称">
-            <el-input v-model="form.name" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item prop="price" label="价格">
-            <el-input v-model="form.price" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item prop="content" label="详情">
-            <el-input v-model="form.content" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item prop="address" label="地址">
-            <el-input v-model="form.address" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item prop="img" label="缩略图">
-            <el-upload
-                :action="$baseUrl + '/files/upload'"
-                :headers="{ token: user.token }"
-                :on-success="handleFileSuccess"
-            >
-            <el-button type="primary">上传</el-button>
-            </el-upload>
-          </el-form-item>
-          <el-form-item prop="date" label="日期">
-            <el-input v-model="form.date" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item prop="status" label="审核状态">
-            <el-input v-model="form.date" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item prop="category" label="类别名称">
-            <el-input v-model="form.category" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item prop="userId" label="用户id">
-            <el-input v-model="form.userId" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item prop="saleStatus" label="售卖状态">
-            <el-input v-model="form.saleStatus" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item prop="readCount" label="浏览量">
-            <el-input v-model="form.readCount" autocomplete="off"></el-input>
-          </el-form-item>
-        </el-form>
-        <div slot="footer" class="dialog-footer">
-          <el-button @click="fromVisible = false">取 消</el-button>
-          <el-button type="primary" @click="save">确 定</el-button>
-        </div>
-      </el-dialog>
-  
-  
+
     </div>
   </template>
   
   <script>
   export default {
-    name: "Goods",
+    name: "FrontGoods",
     data() {
       return {
         tableData: [],  // 所有的数据
@@ -158,8 +100,6 @@
     } else {
         this.$message.error('图片上传失败');
     }
-  
-
 
 },
 
@@ -187,16 +127,7 @@
         this.fromVisible = true   // 打开弹窗
       },
       handleEdit(row) {   // 编辑数据
-        /* this.form = JSON.parse(JSON.stringify(row))  // 给form对象赋值  注意要深拷贝数据
-        this.fromVisible = true   // 打开弹窗 */
-          
-    console.log("编辑商品，原数据:", row);  // 3️⃣ 查看编辑的商品是否有 img
-    this.form = JSON.parse(JSON.stringify(row));  
-    if (!this.form.img) this.form.img = ""; 
-    console.log("编辑商品后，form 数据:", this.form);  // 4️⃣ 确保 img 被赋值
-    this.fromVisible = true;
-
-
+        this.$router.push('/front/addGoods?id=' + row.id)
       },
       save() {   // 保存按钮触发的逻辑  它会触发新增或者更新
          this.$refs.formRef.validate((valid) => {

@@ -87,6 +87,11 @@
             <span slot="title">用户反馈</span>
           </el-menu-item>
 
+          <el-menu-item index="/comment">
+            <i class="el-icon-s-home"></i>
+            <span slot="title">评论管理</span>
+          </el-menu-item>
+
         </el-menu>
       </div>
 

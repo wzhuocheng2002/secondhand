@@ -22,7 +22,7 @@
     <select id="selectById" resultType="com.example.entity.Address">
         select
         <include refid="Base_Column_List" />
-        from id
+        from address
         where id = #{id}
     </select>
 

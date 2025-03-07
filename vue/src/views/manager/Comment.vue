@@ -1,13 +1,12 @@
 <template>
   <div>
     <div class="search">
-      <el-input placeholder="请输入关键字查询" style="width: 200px" v-model="name"></el-input>
+      <el-input placeholder="请输入内容关键字查询" style="width: 200px" v-model="content"></el-input>
       <el-button type="info" plain style="margin-left: 10px" @click="load(1)">查询</el-button>
       <el-button type="warning" plain style="margin-left: 10px" @click="reset">重置</el-button>
     </div>
 
     <div class="operation">
-      <el-button type="primary" plain @click="handleAdd">新增</el-button>
       <el-button type="danger" plain @click="delBatch">批量删除</el-button>
     </div>
 
@@ -15,13 +14,12 @@
       <el-table :data="tableData" strip @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="55" align="center"></el-table-column>
         <el-table-column prop="id" label="序号" width="70" align="center" sortable></el-table-column>
-        <el-table-column prop="name" label="联系人"></el-table-column>
-        <el-table-column prop="address" label="联系地址"></el-table-column>
-        <el-table-column prop="phone" label="联系电话"></el-table-column>
-        <el-table-column prop="userId" label="关联用户"></el-table-column>
-        <el-table-column label="操作" align="center" width="180">
+        <el-table-column prop="content" label="内容"></el-table-column>
+        <el-table-column prop="userId" label="评论人"></el-table-column>
+        <el-table-column prop="time" label="评论时间"></el-table-column>
+        <el-table-column prop="module" label="模块"></el-table-column>
+        <el-table-column label="操作" align="center" width="100">
           <template v-slot="scope">
-            <el-button size="mini" type="primary" plain @click="handleEdit(scope.row)">编辑</el-button>
             <el-button size="mini" type="danger" plain @click="del(scope.row.id)">删除</el-button>
           </template>
         </el-table-column>
@@ -40,40 +38,19 @@
       </div>
     </div>
 
-    <el-dialog title="收货地址" :visible.sync="fromVisible" width="40%" :close-on-click-modal="false" destroy-on-close>
-      <el-form :model="form" label-width="100px" style="padding-right: 50px" :rules="rules" ref="formRef">
-        <el-form-item label="联系人" prop="name">
-          <el-input v-model="form.name" placeholder="联系人"></el-input>
-        </el-form-item>
-        <el-form-item label="联系地址" prop="address">
-          <el-input v-model="form.address" placeholder="联系地址"></el-input>
-        </el-form-item>
-        <el-form-item label="联系电话" prop="phone">
-          <el-input v-model="form.phone" placeholder="联系电话"></el-input>
-        </el-form-item>
-        <el-form-item label="关联用户" prop="userId">
-          <el-input v-model="form.userId" placeholder="关联用户"></el-input>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="fromVisible = false">取 消</el-button>
-        <el-button type="primary" @click="save">确 定</el-button>
-      </div>
-    </el-dialog>
-
 
   </div>
 </template>
 <script>
 export default {
-  name: "Address",
+  content: "Comment",
   data() {
     return {
       tableData: [],  // 所有的数据
       pageNum: 1,   // 当前的页码
       pageSize: 10,  // 每页显示的个数
       total: 0,
-      name: null,
+      content: null,
       fromVisible: false,
       form: {},
       user: JSON.parse(localStorage.getItem('xm-user') || '{}'),
@@ -98,7 +75,7 @@ export default {
       this.$refs.formRef.validate((valid) => {
         if (valid) {
           this.$request({
-            url: this.form.id ? '/address/update' : '/address/add',
+            url: this.form.id ? '/comment/update' : '/comment/add',
             method: this.form.id ? 'PUT' : 'POST',
             data: this.form
           }).then(res => {
@@ -115,7 +92,7 @@ export default {
     },
     del(id) {   // 单个删除
       this.$confirm('您确定删除吗？', '确认删除', {type: "warning"}).then(response => {
-        this.$request.delete('/address/delete/' + id).then(res => {
+        this.$request.delete('/comment/delete/' + id).then(res => {
           if (res.code === '200') {   // 表示操作成功
             this.$message.success('操作成功')
             this.load(1)
@@ -135,7 +112,7 @@ export default {
         return
       }
       this.$confirm('您确定批量删除这些数据吗？', '确认删除', {type: "warning"}).then(response => {
-        this.$request.delete('/address/delete/batch', {data: this.ids}).then(res => {
+        this.$request.delete('/comment/delete/batch', {data: this.ids}).then(res => {
           if (res.code === '200') {   // 表示操作成功
             this.$message.success('操作成功')
             this.load(1)
@@ -148,11 +125,11 @@ export default {
     },
     load(pageNum) {  // 分页查询
       if (pageNum) this.pageNum = pageNum
-      this.$request.get('/address/selectPage', {
+      this.$request.get('/comment/selectPage', {
         params: {
           pageNum: this.pageNum,
           pageSize: this.pageSize,
-          name: this.name,
+          content: this.content,
         }
       }).then(res => {
         if (res.code === '200') {
@@ -164,7 +141,7 @@ export default {
       })
     },
     reset() {
-      this.name = null
+      this.content = null
       this.load(1)
     },
     handleCurrentChange(pageNum) {

@@ -11,12 +11,14 @@
     "core-js": "^3.8.3",
     "element-ui": "^2.15.14",
     "vue": "^2.6.14",
-    "vue-router": "^3.5.1"
+    "vue-router": "^3.5.1",
+    "wangeditor": "^4.7.15"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "@vue/component-compiler-utils": "^3.3.0",
     "vue-template-compiler": "^2.6.14"
   },
   "browserslist": [

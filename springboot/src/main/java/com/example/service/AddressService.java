@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.common.enums.RoleEnum;
 import com.example.entity.Account;
 import com.example.entity.Address;
 import com.example.mapper.AddressMapper;
@@ -64,6 +65,10 @@ public class AddressService {
      * 查询所有
      */
     public List<Address> selectAll(Address address) {
+        Account currentUser = TokenUtils.getCurrentUser();
+        if(RoleEnum.USER.name().equals(currentUser.getRole())){
+            address.setUserId(currentUser.getId());
+        }
         return addressMapper.selectAll(address);
     }
 
@@ -71,6 +76,10 @@ public class AddressService {
      * 分页查询
      */
     public PageInfo<Address> selectPage(Address address, Integer pageNum, Integer pageSize) {
+        Account currentUser = TokenUtils.getCurrentUser();
+        if(RoleEnum.USER.name().equals(currentUser.getRole())){
+            address.setUserId(currentUser.getId());
+        }
         PageHelper.startPage(pageNum, pageSize);
         List<Address> list = addressMapper.selectAll(address);
         return PageInfo.of(list);

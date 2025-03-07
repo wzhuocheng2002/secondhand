@@ -1,14 +1,9 @@
 <template>
-  <div>
-    <div class="search">
-      <el-input placeholder="请输入关键字查询" style="width: 200px" v-model="name"></el-input>
-      <el-button type="info" plain style="margin-left: 10px" @click="load(1)">查询</el-button>
-      <el-button type="warning" plain style="margin-left: 10px" @click="reset">重置</el-button>
-    </div>
+  <div style="width: 50%; margin: 10px auto" class="card">
 
-    <div class="operation">
-      <el-button type="primary" plain @click="handleAdd">新增</el-button>
-      <el-button type="danger" plain @click="delBatch">批量删除</el-button>
+    <div style="margin-bottom: 10px">
+      <el-button type="primary" @click="handleAdd">新增</el-button>
+      <el-button type="danger" @click="delBatch">批量删除</el-button>
     </div>
 
     <div class="table">
@@ -18,7 +13,6 @@
         <el-table-column prop="name" label="联系人"></el-table-column>
         <el-table-column prop="address" label="联系地址"></el-table-column>
         <el-table-column prop="phone" label="联系电话"></el-table-column>
-        <el-table-column prop="userId" label="关联用户"></el-table-column>
         <el-table-column label="操作" align="center" width="180">
           <template v-slot="scope">
             <el-button size="mini" type="primary" plain @click="handleEdit(scope.row)">编辑</el-button>
@@ -27,7 +21,7 @@
         </el-table-column>
       </el-table>
 
-      <div class="pagination">
+      <div style="margin: 15px 0">
         <el-pagination
             background
             @current-change="handleCurrentChange"
@@ -50,9 +44,6 @@
         </el-form-item>
         <el-form-item label="联系电话" prop="phone">
           <el-input v-model="form.phone" placeholder="联系电话"></el-input>
-        </el-form-item>
-        <el-form-item label="关联用户" prop="userId">
-          <el-input v-model="form.userId" placeholder="关联用户"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">

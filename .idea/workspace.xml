@@ -4,48 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96d76ebe-9125-4597-b39c-ddda12e80440" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/CollectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/LikesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/entity/Collect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/entity/Likes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/CollectMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/LikesMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/CollectService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/LikesService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Collect.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="96d76ebe-9125-4597-b39c-ddda12e80440" name="Changes" comment="前台界面更新1">
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/common/enums/OrderStatusEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/common/enums/StatusEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/OrdersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/entity/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/entity/Orders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/CommentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/OrdersMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/OrdersService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/Comment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/OrdersMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/components/Comment.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/AddGoods.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Address.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Goods.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Notice.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Orders.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/manager/Comment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/common/config/JwtInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/common/config/JwtInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/GoodsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/WebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/entity/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/entity/Goods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/GoodsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/GoodsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/AddressService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/GoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/GoodsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/mapper/Address.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/Address.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/mapper/GoodsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/GoodsMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/common/config/JwtInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/common/config/JwtInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/GoodsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/GoodsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/entity/Goods.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/entity/Goods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/mapper/GoodsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/mapper/GoodsMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/WebController.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/WebController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/service/AddressService.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/service/AddressService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/service/GoodsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/service/GoodsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/mapper/Address.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/mapper/Address.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/target/classes/mapper/GoodsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/mapper/GoodsMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/assets/css/front.css" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/assets/css/front.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/assets/imgs/bg1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/assets/css/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/assets/css/global.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/views/Front.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/Front.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/Manager.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/Manager.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/front/GoodsDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/front/GoodsDetail.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/views/front/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/front/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/front/Person.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/front/Person.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/manager/Circles.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/manager/Circles.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/manager/Address.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/manager/Address.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/views/manager/Goods.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/manager/Goods.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/manager/Posts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/manager/Posts.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,14 +58,27 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;wzhuocheng2002&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/wzhuocheng2002/secondhand.git&quot;,
+    &quot;accountId&quot;: &quot;79598595-e977-4166-b6ae-ca0b5b7f262b&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
@@ -72,36 +88,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript Debug.localhost:8080.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.SpringbootApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/secondhand/vue/src/views/front",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "ts.external.directory.path": "E:\\IntelliJ IDEA 2024.3.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.localhost:8080.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.SpringbootApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/secondhand/vue/src/views/front&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\IntelliJ IDEA 2024.3.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.service" />
@@ -161,12 +177,36 @@
       <option name="presentableId" value="Default" />
       <updated>1739956557411</updated>
       <workItem from="1741095623852" duration="10638000" />
-      <workItem from="1741145191196" duration="12564000" />
+      <workItem from="1741145191196" duration="24256000" />
+      <workItem from="1741232113985" duration="19533000" />
+      <workItem from="1741321697419" duration="18072000" />
     </task>
+    <task id="LOCAL-00001" summary="前台界面更新1">
+      <option name="closed" value="true" />
+      <created>1741180588748</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741180588748</updated>
+    </task>
+    <task id="LOCAL-00002" summary="前台界面更新1">
+      <option name="closed" value="true" />
+      <created>1741180623130</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741180623130</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="新增地址、用户反馈、求购信息、帖子四个模块的前后端管理，以及修改之前代码中的一些错误" />
+    <MESSAGE value="前台界面更新1" />
+    <option name="LAST_COMMIT_MESSAGE" value="前台界面更新1" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

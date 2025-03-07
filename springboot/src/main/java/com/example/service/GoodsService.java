@@ -1,8 +1,11 @@
 package com.example.service;
 
+import cn.hutool.core.date.DateUnit;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.example.common.enums.ResultCodeEnum;
 import com.example.common.enums.RoleEnum;
+import com.example.common.enums.StatusEnum;
 import com.example.entity.Account;
 import com.example.entity.Collect;
 import com.example.entity.Goods;
@@ -37,6 +40,11 @@ public class GoodsService {
      * 新增
      */
     public void add(Goods goods) {
+        goods.setDate(DateUtil.now());
+        Account currentUser = TokenUtils.getCurrentUser();
+        goods.setUserId(currentUser.getId());
+        goods.setStatus(StatusEnum.NOT_AUDIT.value);
+        goods.setReadCount(0);
         goodsMapper.insert(goods);
     }
 
@@ -60,6 +68,10 @@ public class GoodsService {
      * 修改
      */
     public void updateById(Goods goods) {
+        Account currentUser = TokenUtils.getCurrentUser();
+        if(RoleEnum.USER.name().equals(currentUser.getRole())){
+            goods.setStatus(StatusEnum.NOT_AUDIT.value);
+        }
         goodsMapper.updateById(goods);
     }
 
@@ -81,6 +93,10 @@ public class GoodsService {
      * 分页查询
      */
     public PageInfo<Goods> selectPage(Goods goods, Integer pageNum, Integer pageSize) {
+        Account currentUser = TokenUtils.getCurrentUser();
+        if(RoleEnum.USER.name().equals(currentUser.getRole())){
+            goods.setUserId(currentUser.getId());
+        }
         PageHelper.startPage(pageNum, pageSize);
         List<Goods> list = goodsMapper.selectAll(goods);
         return PageInfo.of(list);
@@ -88,6 +104,10 @@ public class GoodsService {
 
 
     public PageInfo<Goods> selectFrontPage(Goods goods, Integer pageNum, Integer pageSize) {
+        Account currentUser = TokenUtils.getCurrentUser();
+        if(RoleEnum.USER.name().equals(currentUser.getRole())){
+            goods.setUserId(currentUser.getId());
+        }
         PageHelper.startPage(pageNum, pageSize);
         List<Goods> list = goodsMapper.selectFrontAll(goods);
         return PageInfo.of(list);
