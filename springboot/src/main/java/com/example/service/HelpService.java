@@ -1,19 +1,20 @@
 package com.example.service;
 
 import cn.hutool.core.date.DateUtil;
+import com.example.common.enums.RoleEnum;
+import com.example.common.enums.StatusEnum;
 import com.example.entity.Account;
 import com.example.entity.Help;
 import com.example.mapper.HelpMapper;
 import com.example.utils.TokenUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
+import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * 管理员业务处理
+ * 求购信息业务处理
  **/
 @Service
 public class HelpService {
@@ -25,10 +26,10 @@ public class HelpService {
      * 新增
      */
     public void add(Help help) {
-        help.setTime(DateUtil.now());
         Account currentUser = TokenUtils.getCurrentUser();
         help.setUserId(currentUser.getId());
         help.setStatus("待审核");
+        help.setTime(DateUtil.now());
         helpMapper.insert(help);
     }
 
@@ -52,6 +53,10 @@ public class HelpService {
      * 修改
      */
     public void updateById(Help help) {
+        Account currentUser = TokenUtils.getCurrentUser();
+        if (RoleEnum.USER.name().equals(currentUser.getRole())) {
+            help.setStatus(StatusEnum.NOT_AUDIT.value);
+        }
         helpMapper.updateById(help);
     }
 
@@ -73,12 +78,19 @@ public class HelpService {
      * 分页查询
      */
     public PageInfo<Help> selectPage(Help help, Integer pageNum, Integer pageSize) {
+        Account currentUser = TokenUtils.getCurrentUser();
+        if (RoleEnum.USER.name().equals(currentUser.getRole())) {
+            help.setUserId(currentUser.getId());
+        }
         PageHelper.startPage(pageNum, pageSize);
         List<Help> list = helpMapper.selectAll(help);
         return PageInfo.of(list);
     }
 
-
-
+    public PageInfo<Help> selectFrontPage(Help help, Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Help> list = helpMapper.selectFrontAll(help);
+        return PageInfo.of(list);
+    }
 
 }

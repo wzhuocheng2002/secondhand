@@ -93,14 +93,16 @@ public class CommentService {
         return PageInfo.of(list);
     }
 
-    public List<Comment> selectTree(Integer fid, String module) {
+    public PageInfo<Comment> selectTree(Integer fid, String module, Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         List<Comment> rootList = commentMapper.selectRoot(fid, module);
+        PageInfo<Comment> pageInfo = PageInfo.of(rootList);
         for(Comment root : rootList){
             Integer rootId = root.getRootId();
             List<Comment> children = commentMapper.selectByRootId(rootId);
             root.setChildren(children);
         }
-        return rootList;
+        return pageInfo;
     }
 
     public Integer selectCount(Integer fid, String module) {

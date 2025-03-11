@@ -17,6 +17,7 @@
             <if test="title != null"> and feedback.title= #{title}</if>
             <if test="userId != null"> and feedback.user_id= #{userId}</if>
         </where>
+        order by feedback.id desc
     </select>
 
     <select id="selectById" resultType="com.example.entity.Feedback">
@@ -26,12 +27,7 @@
         where id = #{id}
     </select>
 
-    <select id="selectByTitle" resultType="com.example.entity.Feedback">
-        select
-        <include refid="Base_Column_List" />
-        from feedback
-        where title = #{title}
-    </select>
+
 
     <delete id="deleteById">
         delete from feedback

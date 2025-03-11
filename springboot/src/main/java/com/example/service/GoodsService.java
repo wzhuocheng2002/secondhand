@@ -110,6 +110,10 @@ public class GoodsService {
         }
         PageHelper.startPage(pageNum, pageSize);
         List<Goods> list = goodsMapper.selectFrontAll(goods);
+        for (Goods g : list) {
+            int likesCount  = likesMapper.selectCountByFid(g.getId());
+            g.setLikesCount(likesCount);
+        }
         return PageInfo.of(list);
     }
 

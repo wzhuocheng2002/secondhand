@@ -1,6 +1,8 @@
 package com.example.service;
 
 import cn.hutool.core.date.DateUtil;
+import com.example.common.enums.RoleEnum;
+import com.example.common.enums.StatusEnum;
 import com.example.entity.Account;
 import com.example.entity.Posts;
 import com.example.mapper.PostsMapper;
@@ -52,14 +54,19 @@ public class PostsService {
      * 修改
      */
     public void updateById(Posts posts) {
+        Account currentUser = TokenUtils.getCurrentUser();
+        if (RoleEnum.USER.name().equals(currentUser.getRole())) {
+            posts.setStatus(StatusEnum.NOT_AUDIT.value);
+        }
         postsMapper.updateById(posts);
     }
+
 
     /**
      * 根据ID查询
      */
-    public Posts selectByTitle(String title) {
-        return postsMapper.selectByTitle(title);
+    public Posts selectById(Integer id) {
+        return postsMapper.selectById(id);
     }
 
     /**
@@ -73,12 +80,27 @@ public class PostsService {
      * 分页查询
      */
     public PageInfo<Posts> selectPage(Posts posts, Integer pageNum, Integer pageSize) {
+        Account currentUser = TokenUtils.getCurrentUser();
+        if (RoleEnum.USER.name().equals(currentUser.getRole())) {
+            posts.setUserId(currentUser.getId());
+        }
         PageHelper.startPage(pageNum, pageSize);
         List<Posts> list = postsMapper.selectAll(posts);
         return PageInfo.of(list);
     }
 
 
+    /**
+     * 前台分页查询
+     */
+    public PageInfo<Posts> selectFrontPage(Posts posts, Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Posts> list = postsMapper.selectFrontAll(posts);
+        return PageInfo.of(list);
+    }
 
+    public void updateCount(Integer id) {
+        postsMapper.updateCount(id);
+    }
 
 }

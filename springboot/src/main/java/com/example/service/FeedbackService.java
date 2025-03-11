@@ -2,6 +2,7 @@ package com.example.service;
 
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
+import com.example.common.enums.RoleEnum;
 import com.example.entity.Account;
 import com.example.entity.Feedback;
 import com.example.entity.Posts;
@@ -32,9 +33,7 @@ public class FeedbackService {
         feedback.setUserId(currentUser.getId());
         feedbackMapper.insert(feedback);
     }
-    public Feedback selectByTitle(String title) {
-        return feedbackMapper.selectByTitle(title);
-    }
+
     /**
      * 删除
      */
@@ -76,6 +75,10 @@ public class FeedbackService {
      * 分页查询
      */
     public PageInfo<Feedback> selectPage(Feedback feedback, Integer pageNum, Integer pageSize) {
+        Account currentUser = TokenUtils.getCurrentUser();
+        if(RoleEnum.USER.name().equals(currentUser.getRole())){
+            feedback.setUserId(currentUser.getId());
+        }
         PageHelper.startPage(pageNum, pageSize);
         List<Feedback> list = feedbackMapper.selectAll(feedback);
         return PageInfo.of(list);

@@ -34,4 +34,5 @@ public interface HelpMapper {
     */
     List<Help> selectAll(Help help);
 
+    List<Help> selectFrontAll(Help help);
 }

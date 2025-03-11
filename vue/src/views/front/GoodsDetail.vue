@@ -13,7 +13,12 @@
           </div>
           <div style="color: red; font-size: 24px; margin: 40px 0">￥{{ goods.price }}</div>
           <div style="margin-bottom: 20px"><span style="color: #666">发货地：</span> {{ goods.address }}</div>
-          <div style="margin-bottom: 20px"><span style="color: #666">卖家：</span> {{ goods.userName }}</div>
+          <div style="margin-bottom: 20px"><span style="color: #666">
+            卖家：</span> {{ goods.userName }}
+            <el-tooltip effect="light" content="聊天" placement="right" :hide-after="2000">
+              <i @click="chat(goods.userId)" class="el-icon-chat-dot-round" style="font-size: 18px; margin-left: 3px; cursor: pointer"></i>
+            </el-tooltip>
+          </div>
           <div style="margin-bottom: 40px"><span style="color: #666">发布日期：</span> {{ goods.date }}</div>
           <div>
             <el-button v-if="!goods.userLikes" @click="addLikes()" size="medium" style="background-color: orangered; color: #eee; border-color: orangered">点赞</el-button>
@@ -69,6 +74,7 @@ export default{
             goods:{},
             current:'商品详情',
             form:{},
+          user: JSON.parse(localStorage.getItem('xm-user') || '{}'),
           formVisible:false,
           addressList:[]
         }
@@ -136,7 +142,12 @@ export default{
             this.goods = res.data || {}
               console.log(this.goods)
       })
-    }
+    },
+      chat(userId) {
+        this.$request.post('/chatGroup/add', { chatUserId: userId, userId: this.user.id }).then(res => {
+          this.$router.push('/front/chat')
+        })
+      },
     }
 }
 </script>

@@ -9,10 +9,11 @@
     </sql>
 
     <select id="selectAll" resultType="com.example.entity.Orders">
-        select orders.* ,u1.name as user, u2.name as saleName
+        select
+        orders.*, u1.name as user, u2.name as saleName
         from orders
         left join user u1 on orders.user_id = u1.id
-        left join user u2 on orders.user_id = u2.id
+        left join user u2 on orders.sale_id = u2.id
         <where>
             <if test="goodsName != null"> and orders.goods_name like concat('%', #{goodsName}, '%')</if>
             <if test="orderNo != null"> and orders.order_no like concat('%', #{orderNo}, '%')</if>

@@ -33,5 +33,5 @@ public interface FeedbackMapper {
 
     Feedback selectById(Integer id);
 
-    Feedback selectByTitle(@Param("title") String title);
+
 }

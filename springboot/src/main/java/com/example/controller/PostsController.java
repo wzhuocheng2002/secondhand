@@ -1,8 +1,11 @@
 package com.example.controller;
 
+import cn.hutool.core.date.DateUtil;
 import com.example.common.Result;
+import com.example.entity.Account;
 import com.example.entity.Posts;
 import com.example.service.PostsService;
+import com.example.utils.TokenUtils;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +27,10 @@ public class PostsController {
      */
     @PostMapping("/add")
     public Result add(@RequestBody Posts posts) {
+        posts.setTime(DateUtil.now());
+        Account currentUser = TokenUtils.getCurrentUser();
+        posts.setUserId(currentUser.getId());
+        posts.setStatus("待审核");
         postsService.add(posts);
         return Result.success();
     }
@@ -56,11 +63,11 @@ public class PostsController {
     }
 
     /**
-     * 根据Name查询
+     * 根据ID查询
      */
-    @GetMapping("/selectPostsTitle/{title}")
-    public Result selectByPostsTitle(@PathVariable String title) {
-        Posts posts = postsService.selectByTitle(title);
+    @GetMapping("/selectById/{id}")
+    public Result selectById(@PathVariable Integer id) {
+        Posts posts = postsService.selectById(id);
         return Result.success(posts);
     }
 
@@ -81,6 +88,23 @@ public class PostsController {
                              @RequestParam(defaultValue = "1") Integer pageNum,
                              @RequestParam(defaultValue = "10") Integer pageSize) {
         PageInfo<Posts> page = postsService.selectPage(posts, pageNum, pageSize);
+        return Result.success(page);
+    }
+
+    @PutMapping("/updateCount/{id}")
+    public Result updateCount(@PathVariable Integer id) {
+        postsService.updateCount(id);
+        return Result.success();
+    }
+
+    /**
+     * 前台分页查询
+     */
+    @GetMapping("/selectFrontPage")
+    public Result selectFrontPage(Posts posts,
+                                  @RequestParam(defaultValue = "1") Integer pageNum,
+                                  @RequestParam(defaultValue = "10") Integer pageSize) {
+        PageInfo<Posts> page = postsService.selectFrontPage(posts, pageNum, pageSize);
         return Result.success(page);
     }
 

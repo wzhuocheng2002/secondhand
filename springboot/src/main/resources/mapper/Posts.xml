@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.PostsMapper">
-   <!-- id title content img user_id time circle comment_count-->
+
     <sql id="Base_Column_List">
-        id,title,content,img,user_id,time,circle,comment_count,status
+        id,title,content,img,user_id,time,circle,descr,read_count,status
     </sql>
 
     <select id="selectAll" resultType="com.example.entity.Posts">
@@ -14,21 +14,34 @@
         from posts
         left join user on posts.user_id = user.id
         <where>
-            <!-- id title content img user_id time circle comment_count-->
-
-            <if test="title != null"> and posts.title= #{title}</if>
-
-            <if test="userId != null"> and posts.user_id= #{userId}</if>
-
+            <if test="title != null"> and posts.title like concat('%', #{title}, '%')</if>
+            <if test="userId != null"> and posts.user_id = #{userId}</if>
+            <if test="circle != null"> and posts.circle = #{circle}</if>
         </where>
         order by posts.id desc
     </select>
 
-    <select id="selectByTitle" resultType="com.example.entity.Posts">
+    <select id="selectFrontAll" resultType="com.example.entity.Posts">
         select
-        <include refid="Base_Column_List" />
+        posts.*, user.name as userName
         from posts
-        where title = #{title}
+        left join user on posts.user_id = user.id
+        <where>
+            posts.status = '通过'
+            <if test="title != null"> and posts.title like concat('%', #{title}, '%')</if>
+            <if test="userId != null"> and posts.user_id = #{userId}</if>
+            <if test="circle != null"> and posts.circle = #{circle}</if>
+        </where>
+        order by posts.id desc
+    </select>
+
+
+    <select id="selectById" resultType="com.example.entity.Posts">
+        select
+            posts.*, user.name as userName
+        from posts
+                 left join user on posts.user_id = user.id
+        where posts.id = #{id}
     </select>
 
     <delete id="deleteById">
@@ -36,13 +49,13 @@
         where  id = #{id}
     </delete>
 
-    <!-- id title content img user_id time circle comment_count-->
-    <insert id="insert" parameterType="com.example.entity.Posts" useGeneratedKeys="true">
+    <insert id="insert" parameterType="com.example.entity.Posts" useGeneratedKeys="true" keyProperty="id">
         insert into posts
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">id,</if>
             <if test="title != null">title,</if>
             <if test="content != null">content,</if>
+            <if test="img != null">img,</if>
             <if test="userId != null">user_id,</if>
             <if test="time != null">time,</if>
             <if test="circle != null">circle,</if>
@@ -54,6 +67,7 @@
             <if test="id != null">#{id},</if>
             <if test="title != null">#{title},</if>
             <if test="content != null">#{content},</if>
+            <if test="img != null">#{img},</if>
             <if test="userId != null">#{userId},</if>
             <if test="time != null">#{time},</if>
             <if test="circle != null">#{circle},</if>
@@ -65,7 +79,6 @@
 
     <update id="updateById" parameterType="com.example.entity.Posts">
         update posts
-        <!-- id title content img user_id time circle comment_count-->
         <set>
             <if test="title != null">
                 title = #{title},
@@ -94,7 +107,6 @@
             <if test="status != null">
                 status = #{status},
             </if>
-
         </set>
         where id = #{id}
     </update>

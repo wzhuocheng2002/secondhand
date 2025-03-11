@@ -4,51 +4,91 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96d76ebe-9125-4597-b39c-ddda12e80440" name="Changes" comment="前台界面更新1">
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/common/enums/OrderStatusEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/common/enums/StatusEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/CommentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/OrdersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/entity/Comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/entity/Orders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/CommentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/OrdersMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/CommentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/OrdersService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/Comment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/OrdersMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue/src/components/Comment.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue/src/views/front/AddGoods.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Address.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Goods.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Notice.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Orders.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue/src/views/manager/Comment.vue" afterDir="false" />
+    <list default="true" id="96d76ebe-9125-4597-b39c-ddda12e80440" name="Changes" comment="前台界面更新2">
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/common/config/AliPayConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/common/config/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/AliPayController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/ChatGroupController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/ChatInfoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/entity/ChatGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/entity/ChatInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/ChatGroupMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/ChatInfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/ChatGroupService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/ChatInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/WebSocketServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/ChatGroupMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/ChatInfoMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/assets/imgs/1708413000801-宠物.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/assets/imgs/全部.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/assets/imgs/图书教材.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/assets/imgs/数码产品.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/assets/imgs/生活用品.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/assets/imgs/音乐.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Chat.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Feedback.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Help.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Posts.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/PostsDetail.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/Search.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/UserFeedback.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/UserHelp.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/front/UserPosts.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/src/views/manager/Orders.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/AddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/common/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/common/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/common/enums/OrderStatusEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/common/enums/OrderStatusEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/FeedbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/FeedbackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/HelpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/HelpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/OrdersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/controller/PostsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/entity/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/entity/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/FeedbackMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/FeedbackMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/HelpMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/HelpMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/OrdersMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/OrdersMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/PostsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/PostsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/FeedbackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/FeedbackService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/GoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/GoodsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/mapper/Address.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/Address.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/mapper/GoodsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/GoodsMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/FileController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/WebController.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/WebController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/service/AddressService.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/service/AddressService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/HelpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/HelpService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/OrdersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/OrdersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/PostsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/example/service/PostsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/mapper/Feedback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/Feedback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/mapper/Help.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/Help.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/mapper/OrdersMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/OrdersMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/mapper/Posts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/mapper/Posts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/common/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/common/config/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/FeedbackController.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/FeedbackController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/HelpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/HelpController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/PostsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/controller/PostsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/entity/Help.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/entity/Help.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/mapper/FeedbackMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/mapper/FeedbackMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/mapper/HelpMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/mapper/HelpMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/mapper/PostsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/mapper/PostsMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/service/FeedbackService.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/service/FeedbackService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/service/GoodsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/service/GoodsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/target/classes/mapper/Address.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/mapper/Address.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/target/classes/mapper/GoodsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/mapper/GoodsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/service/HelpService.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/service/HelpService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/com/example/service/PostsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/com/example/service/PostsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/mapper/Feedback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/mapper/Feedback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/mapper/Help.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/mapper/Help.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot/target/classes/mapper/Posts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/target/classes/mapper/Posts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/node_modules/.package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/assets/css/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/assets/css/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/components/Comment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Comment.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/views/Front.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/Front.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/views/Manager.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/Manager.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/views/front/GoodsDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/front/GoodsDetail.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/views/front/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/front/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/manager/Address.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/manager/Address.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/manager/Goods.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/manager/Goods.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/front/Orders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/front/Orders.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/manager/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/manager/Home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +98,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Vue Options API Component" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -115,6 +156,9 @@
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
       &quot;mysql&quot;
+    ],
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Options API Component&quot;
     ]
   }
 }</component>
@@ -127,6 +171,7 @@
       <recent name="E:\secondhand\vue\src\views\manager" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\secondhand\vue\src\assets\imgs" />
       <recent name="E:\secondhand\vue\src\views\front" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -179,7 +224,11 @@
       <workItem from="1741095623852" duration="10638000" />
       <workItem from="1741145191196" duration="24256000" />
       <workItem from="1741232113985" duration="19533000" />
-      <workItem from="1741321697419" duration="18072000" />
+      <workItem from="1741321697419" duration="18276000" />
+      <workItem from="1741404463893" duration="11588000" />
+      <workItem from="1741614030919" duration="6687000" />
+      <workItem from="1741659961822" duration="6918000" />
+      <workItem from="1741674949499" duration="4972000" />
     </task>
     <task id="LOCAL-00001" summary="前台界面更新1">
       <option name="closed" value="true" />
@@ -197,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741180623130</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="前台界面更新2">
+      <option name="closed" value="true" />
+      <created>1741372224752</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1741372224752</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,7 +263,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="新增地址、用户反馈、求购信息、帖子四个模块的前后端管理，以及修改之前代码中的一些错误" />
     <MESSAGE value="前台界面更新1" />
-    <option name="LAST_COMMIT_MESSAGE" value="前台界面更新1" />
+    <MESSAGE value="前台界面更新2" />
+    <option name="LAST_COMMIT_MESSAGE" value="前台界面更新2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

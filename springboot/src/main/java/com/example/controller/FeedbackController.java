@@ -46,11 +46,7 @@ public class FeedbackController {
         feedbackService.deleteBatch(ids);
         return Result.success();
     }
-    @GetMapping("/selectTitle/{title}")
-    public Result selectByTitle(@PathVariable String title) {
-        Feedback feedback = feedbackService.selectByTitle(title);
-        return Result.success(feedback);
-    }
+
     /**
      * 修改
      */

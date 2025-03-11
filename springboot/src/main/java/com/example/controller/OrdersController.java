@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import cn.hutool.core.lang.Dict;
 import com.example.common.Result;
 import com.example.entity.Orders;
 import com.example.service.OrdersService;
@@ -81,6 +82,35 @@ public class OrdersController {
                              @RequestParam(defaultValue = "10") Integer pageSize) {
         PageInfo<Orders> page = ordersService.selectPage(orders, pageNum, pageSize);
         return Result.success(page);
+    }
+
+    /**
+     * 卖家的分页查询
+     */
+    @GetMapping("/selectSalePage")
+    public Result selectSalePage(Orders orders,
+                                 @RequestParam(defaultValue = "1") Integer pageNum,
+                                 @RequestParam(defaultValue = "10") Integer pageSize) {
+        PageInfo<Orders> page = ordersService.selectSalePage(orders, pageNum, pageSize);
+        return Result.success(page);
+    }
+
+    /**
+     * 查询折线图数据
+     */
+    @GetMapping("/selectLine")
+    public Result selectLine() {
+        List<Dict> dictList = ordersService.selectLine();
+        return Result.success(dictList);
+    }
+
+    /**
+     * 查询柱状图数据
+     */
+    @GetMapping("/selectBar")
+    public Result selectBar() {
+        List<Dict> dictList = ordersService.selectBar();
+        return Result.success(dictList);
     }
 
 }

@@ -5,12 +5,11 @@ import com.example.entity.Help;
 import com.example.service.HelpService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 用户前端操作接口
+ * 求购信息前端操作接口
  **/
 @RestController
 @RequestMapping("/help")
@@ -56,9 +55,9 @@ public class HelpController {
     }
 
     /**
-     * 根据Name查询
+     * 根据ID查询
      */
-    @GetMapping("/selectId/{id}")
+    @GetMapping("/selectById/{id}")
     public Result selectById(@PathVariable Integer id) {
         Help help = helpService.selectById(id);
         return Result.success(help);
@@ -68,7 +67,7 @@ public class HelpController {
      * 查询所有
      */
     @GetMapping("/selectAll")
-    public Result selectAll(Help help ) {
+    public Result selectAll(Help help) {
         List<Help> list = helpService.selectAll(help);
         return Result.success(list);
     }
@@ -81,6 +80,14 @@ public class HelpController {
                              @RequestParam(defaultValue = "1") Integer pageNum,
                              @RequestParam(defaultValue = "10") Integer pageSize) {
         PageInfo<Help> page = helpService.selectPage(help, pageNum, pageSize);
+        return Result.success(page);
+    }
+
+    @GetMapping("/selectFrontPage")
+    public Result selectFrontPage(Help help,
+                                  @RequestParam(defaultValue = "1") Integer pageNum,
+                                  @RequestParam(defaultValue = "10") Integer pageSize) {
+        PageInfo<Help> page = helpService.selectFrontPage(help, pageNum, pageSize);
         return Result.success(page);
     }
 

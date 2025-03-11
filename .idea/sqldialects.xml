@@ -5,9 +5,14 @@
     <file url="file://$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/CommentMapper.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/GoodsMapper.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/LikesMapper.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/OrdersMapper.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/springboot/src/main/java/com/example/mapper/PostsMapper.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/springboot/src/main/resources/mapper/Address.xml" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/springboot/src/main/resources/mapper/Comment.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/springboot/src/main/resources/mapper/Feedback.xml" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/springboot/src/main/resources/mapper/GoodsMapper.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/springboot/src/main/resources/mapper/Help.xml" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/springboot/src/main/resources/mapper/OrdersMapper.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/springboot/src/main/resources/mapper/Posts.xml" dialect="GenericSQL" />
   </component>
 </project>

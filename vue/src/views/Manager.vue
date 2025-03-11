@@ -62,6 +62,11 @@
             <span slot="title">商品信息</span>
           </el-menu-item>
 
+          <el-menu-item index="/orders">
+            <i class="el-icon-s-home"></i>
+            <span slot="title">订单信息</span>
+          </el-menu-item>
+
           <el-menu-item index="/circles">
             <i class="el-icon-s-home"></i>
             <span slot="title">圈子信息</span>

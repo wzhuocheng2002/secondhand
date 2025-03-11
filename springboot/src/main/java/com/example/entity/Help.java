@@ -21,6 +21,15 @@ public class Help implements Serializable {
     private String structure;
     private String userName;
     private String solved;
+    private String avatar;
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 
     public String getSolved() {
         return solved;

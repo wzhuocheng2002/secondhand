@@ -3,23 +3,31 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.HelpMapper">
-    <!-- id title content img status user_id time solved-->
+
     <sql id="Base_Column_List">
-        id title content img status user_id time solved
+        id,title,content,img,status,user_id,time,solved
     </sql>
 
     <select id="selectAll" resultType="com.example.entity.Help">
         select
-        help.*, user.name as userName
+        help.*, user.name as userName, user.avatar as avatar
         from help
         left join user on help.user_id = user.id
         <where>
-            <!-- id title content img user_id time circle comment_count-->
+            <if test="title != null"> and help.title like concat('%', #{title}, '%')</if>
+            <if test="userId != null"> and help.user_id = #{userId}</if>
+        </where>
+        order by help.id desc
+    </select>
 
-            <if test="title != null"> and help.title= #{title}</if>
-
-            <if test="userId != null"> and help.user_id= #{userId}</if>
-
+    <select id="selectFrontAll" resultType="com.example.entity.Help">
+        select
+        help.*, user.name as userName, user.avatar as avatar
+        from help
+        left join user on help.user_id = user.id
+        <where>
+            status = '通过'
+            <if test="title != null"> and help.title like concat('%', #{title}, '%')</if>
         </where>
         order by help.id desc
     </select>
@@ -36,8 +44,7 @@
         where  id = #{id}
     </delete>
 
-    <!-- id title content img status user_id time solved-->
-    <insert id="insert" parameterType="com.example.entity.Help" useGeneratedKeys="true">
+    <insert id="insert" parameterType="com.example.entity.Help" useGeneratedKeys="true" keyProperty="id">
         insert into help
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">id,</if>
@@ -63,7 +70,6 @@
 
     <update id="updateById" parameterType="com.example.entity.Help">
         update help
-        <!-- id title content img status user_id time solved-->
         <set>
             <if test="title != null">
                 title = #{title},
@@ -86,7 +92,6 @@
             <if test="solved != null">
                 solved = #{solved},
             </if>
-
         </set>
         where id = #{id}
     </update>

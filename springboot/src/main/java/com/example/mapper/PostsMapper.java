@@ -1,6 +1,7 @@
 package com.example.mapper;
 
 import com.example.entity.Posts;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -34,5 +35,9 @@ public interface PostsMapper {
     */
     List<Posts> selectAll(Posts posts);
 
-    Posts selectByTitle(String title);
+
+    List<Posts> selectFrontAll(Posts posts);
+
+    @Update("update posts set read_count = read_count + 1 where id = #{id}")
+    void updateCount(Integer id);
 }

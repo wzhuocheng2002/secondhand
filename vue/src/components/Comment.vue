@@ -47,6 +47,20 @@
           </div>
         </div>
       </div>
+    <div style="margin-top: 10px" v-if="total>0">
+      <el-pagination
+          small
+          background
+          @current-change="handleCurrentChange"
+          :current-page="pageNum"
+          :page-sizes="[5, 10, 20]"
+          :page-size="pageSize"
+          layout="total, prev, pager, next"
+          :total="total">
+      </el-pagination>
+</div>
+
+
     </div>
   </div>
 </template>
@@ -63,7 +77,10 @@ export default {
       user: JSON.parse(localStorage.getItem('xm-user') || '{}'),
       commentCount: 0,
       content: '',
-      commentList: []
+      commentList: [],
+      pageNum:1,
+      pageSize:5,
+      total: 0,
     }
   },
   created() {
@@ -87,8 +104,16 @@ export default {
       })
     },
     loadComment() {
-      this.$request.get('/comment/selectTree/' + this.fid + '/' + this.module).then(res => {
-        this.commentList = res.data || []
+
+
+      this.$request.get('/comment/selectTree/' + this.fid + '/' + this.module, {
+        params: {
+          pageNum:this.pageNum,
+          pageSize:this.pageSize,
+        }
+      }).then(res => {
+        this.commentList = res.data?.list || []
+        this.total = res.data?.total || 0
       })
 
       this.$request.get('/comment/selectCount/' + this.fid + '/' + this.module).then(res => {
@@ -110,6 +135,10 @@ export default {
           this.$message.error(res.msg)
         }
       })
+    },
+    handleCurrentChange(pageNum) {
+      this.pageNum = pageNum
+      this.loadComment()
     },
   }
 }

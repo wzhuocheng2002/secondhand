@@ -31,6 +31,7 @@ const routes = [
       { path: 'address', name: 'Address', meta: { name: '求助' }, component: () => import('../views/manager/Address') },
       { path: 'feedback', name: 'Feedback', meta: { name: '求助' }, component: () => import('../views/manager/Feedback') },
       { path: 'comment', name: 'Comment', meta: { name: '评论' }, component: () => import('../views/manager/Comment') },
+      { path: 'orders', name: 'Comment', meta: { name: '评论' }, component: () => import('../views/manager/Orders') },
     ]
   },
   {
@@ -47,6 +48,15 @@ const routes = [
       { path: 'goods', component: () => import('../views/front/Goods') },
       { path: 'address', component: () => import('../views/front/Address') },
       { path: 'orders', component: () => import('../views/front/Orders') },
+      { path: 'posts', component: () => import('../views/front/Posts') },
+      { path: 'userPosts', component: () => import('../views/front/UserPosts') },
+      { path: 'postsDetail', component: () => import('../views/front/PostsDetail') },
+      { path: 'help', component: () => import('../views/front/Help') },
+      { path: 'userHelp', component: () => import('../views/front/UserHelp') },
+      { path: 'feedback', component: () => import('../views/front/Feedback.vue') },
+      { path: 'userFeedback', component: () => import('../views/front/UserFeedback') },
+      { path: 'chat', component: () => import('../views/front/Chat') },
+      { path: 'search', component: () => import('../views/front/Search') },
     ]
   },
   { path: '/login', name: 'Login', meta: { name: '登录' }, component: () => import('../views/Login.vue') },
